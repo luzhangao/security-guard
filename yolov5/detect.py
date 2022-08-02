@@ -29,6 +29,7 @@ import os
 import sys
 from pathlib import Path
 
+import arrow
 import torch
 import torch.backends.cudnn as cudnn
 
@@ -74,6 +75,7 @@ def run(
         hide_conf=False,  # hide confidences
         half=False,  # use FP16 half-precision inference
         dnn=False,  # use OpenCV DNN for ONNX inference
+        notification=False,  # send email notifications
 ):
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -201,6 +203,10 @@ def run(
 
         # Print time (inference-only)
         LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
+        cnt = 0
+        if notification and "person" in s:
+            cv2.imwrite(f'../screenshots/{arrow.now().timestamp()}.jpg', im0)
+            cnt += 1
 
     # Print results
     t = tuple(x / seen * 1E3 for x in dt)  # speeds per image
