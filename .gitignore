@@ -131,3 +131,6 @@ dmypy.json
 # mine
 raw_data/
 datasets/
+yolov5/runs/
+.idea/
+screenshots/
