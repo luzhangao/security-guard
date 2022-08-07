@@ -16,6 +16,5 @@ SENDER_MAIL_PASS = config('SENDER_MAIL_PASS')
 
 RECEIVER_MAIL_USER = config('RECEIVER_MAIL_USER')
 
+ZIP_PASS = config('ZIP_PASS')
 
-if __name__ == '__main__':
-    pass
