@@ -41,10 +41,16 @@ def email_sender():
                 pyminizip.compress_multiple(images, [], zip_file_path, config.ZIP_PASS, 2)
 
                 sm.send_mail_with_zipfile(f"{current_time.format('YYYY-MM-DD HH-mm-ss')} {len(images)} images", content="", to_list=[config.RECEIVER_MAIL_USER], zipfiles=[zip_file_path])
+                if os.path.isfile(zip_file_path):
+                    os.remove(zip_file_path)
             else:
                 sm.send_mail(f"{current_time.format('YYYY-MM-DD HH-mm-ss')} 0 image", content="no images", to_list=[config.RECEIVER_MAIL_USER])
 
             print("Send successfully!")
+
+            for image in images:
+                if os.path.isfile(image):
+                    os.remove(image)
         except:
             print(traceback.format_exc())
             print(f"{current_time} Failed")
