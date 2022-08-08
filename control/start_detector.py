@@ -15,9 +15,9 @@ sys.path.append("../")
 from yolov5.detect import run
 
 
-def start_detector():
-    run(weights="yolov5s.pt", source=0, notification=True)
+def start_detector(conf_thres=0.4):
+    run(weights="yolov5s.pt", source=0, notification=True, conf_thres=conf_thres)
 
 
 if __name__ == '__main__':
-    start_detector()
+    start_detector(conf_thres=0.5)
