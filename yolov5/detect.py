@@ -203,10 +203,8 @@ def run(
 
         # Print time (inference-only)
         LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
-        cnt = 0
         if notification and "person" in s:
             cv2.imwrite(f'../screenshots/{arrow.now().timestamp()}.jpg', im0)
-            cnt += 1
 
     # Print results
     t = tuple(x / seen * 1E3 for x in dt)  # speeds per image
