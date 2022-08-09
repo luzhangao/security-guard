@@ -44,7 +44,8 @@ def email_sender():
                 if os.path.isfile(zip_file_path):
                     os.remove(zip_file_path)
             else:
-                sm.send_mail(f"{current_time.format('YYYY-MM-DD HH-mm-ss')} 0 image", content="no images", to_list=[config.RECEIVER_MAIL_USER])
+                # sm.send_mail(f"{current_time.format('YYYY-MM-DD HH-mm-ss')} 0 image", content="no images", to_list=[config.RECEIVER_MAIL_USER])
+                pass
 
             print("Send successfully!")
 
