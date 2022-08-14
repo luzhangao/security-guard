@@ -7,16 +7,14 @@
 @description:
 """
 
-import os
 import sys
 sys.path.append("../")
-# print(os.getcwd())
 
 from yolov5.detect import run
 
 
 def start_detector(conf_thres=0.4):
-    run(weights="yolov5n.pt", source=0, notification=True, conf_thres=conf_thres)
+    run(weights="yolov5n.pt", source=0, notification=True, conf_thres=conf_thres, nosave=True, name="security_guard")
 
 
 if __name__ == '__main__':
